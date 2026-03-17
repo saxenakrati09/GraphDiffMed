@@ -383,9 +383,9 @@ class SelfAttention(nn.Module):
         attn_output, attn_weights = self.multihead_attn(query, key, value)
         return attn_output
     
-class CIDGMed(torch.nn.Module):
+class GraphDiffMed(torch.nn.Module):
     """
-    CIDGMed with Graph-Biased Differential Attention.
+    GraphDiffMed with Graph-Biased Differential Attention.
     
     This model implements differential attention (v2) with graph-biased structural priors.
     The graph bias from DDI/causal relationships is injected before softmax to preserve
@@ -405,7 +405,7 @@ class CIDGMed(torch.nn.Module):
             device=torch.device('cpu'),
             lambda_graph=0.1,
     ):
-        super(CIDGMed, self).__init__()
+        super(GraphDiffMed, self).__init__()
         self.device = device
         self.emb_dim = emb_dim
         self.lambda_graph = lambda_graph
